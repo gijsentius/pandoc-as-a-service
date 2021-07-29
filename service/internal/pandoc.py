@@ -20,8 +20,11 @@ def run_pandoc(input_file: str, output_file: str, flags: Optional[Dict[str, str]
     """
     template = flags['template'] if 'template' in flags else DEFAULT_TEMPLATE_FLAG
     csl = flags['csl'] if 'csl' in flags else DEFAULT_CSL_FLAG
+    flags.pop('template', None)
+    flags.pop('csl', None)
     base_command = ["pandoc", input_file,
                     "-o " + output_file,
                     PANDOC_CROSSREF_FLAG, PANDOC_CITEPROC_FLAG, PANDOC_PLANTUML_FLAG,
                     template, csl]
-    print(base_command)
+    base_command.extend(list(flags.values()))
+    subprocess.run(base_command)
