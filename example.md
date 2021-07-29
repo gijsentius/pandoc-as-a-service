@@ -42,7 +42,11 @@ Integer vel est id velit convallis sodales sed at turpis. In hac habitasse plate
 
 ```{.plantuml #fig:plantuml_fig caption="caption of plantuml fig" width=95%}
 @startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
 
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: Another authentication Response
 @enduml
 ```
 

@@ -38,6 +38,9 @@ mkdir -p temp
 mkdir -p output
 mkdir -p $HOME/.pandoc-crossref
 mkdir -p $HOME/.pandoc/templates
+mkdir -p $HOME/.local/share/plantuml
 
 cp resources/crossref-config.yaml $HOME/.pandoc-crossref/config.yaml
 cp resources/templates/* $HOME/.pandoc/templates
+cp resources/plantuml/plantuml $HOME/.local/bin/plantuml
+cp resources/plantuml/plantuml.jar $HOME/.local/share/plantuml/plantuml.jar 

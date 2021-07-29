@@ -1,5 +1,6 @@
 import os
 import shutil
+from typing import List
 from fastapi import File
 
 
@@ -11,8 +12,10 @@ def create_folder(folder_name: str) -> bool:
         return False
 
 
-def clean_workspace(path: str):
-    shutil.rmtree(path)
+def clean_workspace(paths: List[str]):
+    for path in paths:
+        if os.path.exists(path):
+            shutil.rmtree(path)
 
 
 def load_file(file: File, path: str):

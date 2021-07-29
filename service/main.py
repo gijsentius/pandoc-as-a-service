@@ -1,7 +1,9 @@
 import os
 from typing import List, Optional
+
+from fastapi import responses
 from .internal.util import clean_workspace, create_folder, filename_output_with_path, filename_with_path, filename_without_extension, load_file, create_path
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, Response
 from fastapi.responses import FileResponse
 from .internal import pandoc
 
@@ -37,7 +39,10 @@ async def convert_file(document: UploadFile = File(...),
     pandoc.run_pandoc(request_filename_with_path, path_output)
 
     # After the conversion is finished succesfully clean the workspace
-    clean_workspace(request_path)
+    clean_workspace([request_path, 'plantuml-images'])
 
     # return FileResponse(pdf_filepath)
-    return FileResponse(path_output)
+    if os.path.exists(path_output):
+        return FileResponse(path_output)
+    else:
+        return Response(status_code=500)

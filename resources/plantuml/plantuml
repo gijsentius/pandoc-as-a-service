@@ -1,0 +1,4 @@
+#!/bin/bash
+set -ie 
+
+java -jar $HOME/.local/share/plantuml/plantuml.jar $@
