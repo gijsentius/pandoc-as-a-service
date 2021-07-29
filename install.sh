@@ -37,5 +37,7 @@ venv/bin/pip install -r requirements.txt
 mkdir -p temp
 mkdir -p output
 mkdir -p $HOME/.pandoc-crossref
+mkdir -p $HOME/.pandoc/templates
 
 cp resources/crossref-config.yaml $HOME/.pandoc-crossref/config.yaml
+cp resources/templates/* $HOME/.pandoc/templates

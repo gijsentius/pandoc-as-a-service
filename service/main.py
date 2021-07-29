@@ -1,6 +1,6 @@
 import os
 from typing import List, Optional
-from .internal.util import clean_workspace, create_folder, filename_without_extension, load_file, create_path
+from .internal.util import clean_workspace, create_folder, filename_output_with_path, filename_with_path, filename_without_extension, load_file, create_path
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import FileResponse
 from .internal import pandoc
@@ -14,7 +14,10 @@ async def convert_file(document: UploadFile = File(...),
                        bibliography: Optional[UploadFile] = None,
                        images: Optional[List[UploadFile]] = []):
     filename = filename_without_extension(document.filename)
+    filename_output = filename + '.pdf'
+    path_output = filename_output_with_path(filename_output)
     request_path = create_path(filename)
+    request_filename_with_path = filename_with_path(document, request_path)
     bibliography_available = True if bibliography is not None else False
 
     # Create folder for request
@@ -31,15 +34,10 @@ async def convert_file(document: UploadFile = File(...),
         load_file(file=image, path=request_path + "images")
 
     # Perform conversion
-    pandoc.run_pandoc(document.filename, filename + '.pdf')
-
-    # Create respons from pdf
-    
+    pandoc.run_pandoc(request_filename_with_path, path_output)
 
     # After the conversion is finished succesfully clean the workspace
     clean_workspace(request_path)
 
     # return FileResponse(pdf_filepath)
-    return {"filename": document.filename,
-            "images": [file.filename for file in images],
-            "filename_without_extension": filename, "request_path": request_path}
+    return FileResponse(path_output)

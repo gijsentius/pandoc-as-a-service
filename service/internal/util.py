@@ -21,9 +21,17 @@ def load_file(file: File, path: str):
         output.write(contents)
 
 
+def filename_with_path(file: File, path: str):
+    return path + file.filename
+
+
 def filename_without_extension(filename: str):
     if filename is not None:
         return filename.split('.')[0]
+
+
+def filename_output_with_path(filename):
+    return os.getcwd() + "/output/" + filename
 
 
 def create_path(foldername):

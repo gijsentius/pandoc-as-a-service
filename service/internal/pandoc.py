@@ -8,7 +8,7 @@ PANDOC_CITEPROC_FLAG: Final[str] = "-F pandoc-citeproc"
 PANDOC_PLANTUML_FLAG: Final[str] = "-F " + \
     os.getcwd() + "/resources/plantuml/plantuml.py"
 
-DEFAULT_TEMPLATE_FLAG: Final[str] = "--template eisvogel"
+DEFAULT_TEMPLATE_FLAG: Final[str] = "--template eisvogel-default"
 DEFAULT_CSL_FLAG: Final[str] = "--csl=styles/ieee.csl"
 
 
@@ -27,4 +27,6 @@ def run_pandoc(input_file: str, output_file: str, flags: Optional[Dict[str, str]
                     PANDOC_CROSSREF_FLAG, PANDOC_CITEPROC_FLAG, PANDOC_PLANTUML_FLAG,
                     template, csl]
     base_command.extend(list(flags.values()))
-    subprocess.run(base_command)
+    print(base_command)
+    process = subprocess.run(base_command)
+    print(process)

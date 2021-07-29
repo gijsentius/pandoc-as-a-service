@@ -7,13 +7,13 @@ author: Gijs Entius
 
 lang: nl-NL
 
-titlepage: true
-titlepage-rule-height: 0
-titlepage-background: "backgrounds/example1.pdf"
-titlepage-text-color: "FFFFFF" 
-titlepage-rule-color: "FFFFFF"
+# titlepage: true
+# titlepage-rule-height: 0
+# titlepage-background: "backgrounds/example1.pdf"
+# titlepage-text-color: "FFFFFF" 
+# titlepage-rule-color: "FFFFFF"
 
-informationpage: titelpage.tex
+# informationpage: titelpage.tex
 
 doublesided: true
 toc: true
