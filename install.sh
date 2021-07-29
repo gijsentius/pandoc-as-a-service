@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo 'Install will take a long time due to installing the texlive-full package'
+echo 'The full packages also requires > 5 gb diskspace'
+
 sudo apt update
 
 sudo apt install texlive-full -y
@@ -22,13 +25,10 @@ mv styles-master/ styles/
 rm master.zip
 
 python3 -m venv venv
-shopt -s expand_aliases
-alias python='venv/bin/python3'
-alias pip='venv/bin/pip'
-pip install -r req requirements.txt
+venv/bin/pip install -r requirements.txt
 
-mkdir temp
-mkdir output
-mkdir $HOME/.pandoc-crossref
+mkdir -p temp
+mkdir -p output
+mkdir -p $HOME/.pandoc-crossref
 
 cp resources/crossref-config.yaml $HOME/.pandoc-crossref/config.yaml

@@ -9,7 +9,7 @@ PANDOC_PLANTUML_FLAG: Final[str] = "-F " + \
     os.getcwd() + "/resources/plantuml/plantuml.py"
 
 DEFAULT_TEMPLATE_FLAG: Final[str] = "--template eisvogel"
-DEFAULT_CSL_FLAG: Final[str] = "--csl=ieee.csl"
+DEFAULT_CSL_FLAG: Final[str] = "--csl=styles/ieee.csl"
 
 
 def run_pandoc(input_file: str, output_file: str, flags: Optional[Dict[str, str]] = {}) -> CompletedProcess:
