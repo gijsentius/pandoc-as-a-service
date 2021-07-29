@@ -3,9 +3,15 @@
 echo 'Install will take a long time due to installing the texlive-full package'
 echo 'The full packages also requires > 5 gb diskspace'
 
+read  -n 1 -p "Do you want to proceed installing texlive-full [y/n]:" install_texlive
+
 sudo apt update
 
-sudo apt install texlive-full -y
+if [ install_texlive = 'y' ]; then
+    echo "Installing texlive-full..."
+    sudo apt install texlive-full -y
+fi
+
 sudo apt install openjdk-11-jre -y
 sudo apt install build-essential -y
 sudo apt install npm -y

@@ -2,6 +2,7 @@
 
 temp/
 output/
+styles/
 
 venv/
 *__pycache__*
