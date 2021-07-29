@@ -7,7 +7,7 @@ read -p "Do you want to proceed installing texlive-full [y/n]:" install_texlive
 
 sudo apt update
 
-if [ install_texlive = 'y' ]; then
+if [ $install_texlive = 'y' ]; then
     echo "Installing texlive-full..."
     sudo apt install texlive-full -y
 fi
