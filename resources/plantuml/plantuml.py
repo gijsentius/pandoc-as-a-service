@@ -13,6 +13,7 @@ from subprocess import call
 
 from pandocfilters import toJSONFilter, Para, Image, get_filename4code, get_caption, get_extension
 
+
 def plantuml(key, value, format, _):
     if key == 'CodeBlock':
         [[ident, classes, keyvals], code] = value
@@ -33,10 +34,12 @@ def plantuml(key, value, format, _):
                 with open(src, "w") as f:
                     f.write(txt)
 
-                call(["java", "-jar", os.path.expanduser("~") + "plantuml_beta.jar", "-t"+filetype, src])
+                call(["java", "-jar", os.getcwd +
+                     "/resources/plantuml/plantuml.jar", "-t" + filetype, src])
                 sys.stderr.write('Created image ' + dest + '\n')
 
             return Para([Image([ident, [], keyvals], caption, [dest, typef])])
+
 
 if __name__ == "__main__":
     toJSONFilter(plantuml)

@@ -22,8 +22,6 @@ toc-own-page: true
 numbersections: true
 
 listings: true
-
-bibliography: "TODO: fix a way to use a bibliography"
 ---
 
 # Lorem Ipsum

@@ -1,2 +1,10 @@
-venv/
 .vscode/
+
+temp/
+output/
+
+venv/
+*__pycache__*
+
+pandoc-2.14.1-1-amd64.deb
+pandoc-crossref-Linux.tar.xz

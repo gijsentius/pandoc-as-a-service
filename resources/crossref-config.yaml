@@ -1,0 +1,16 @@
+figureTitle: "Figuur"
+tableTitle: "Tabel"
+figPrefix:
+  - "figuur"
+  - "figuren"
+eqnPrefix:
+  - "vergelijking"
+  - "vergelijkingen"
+tblPrefix:
+  - "tabel"
+  - "tabellen"
+lastDelim: "en"
+secPrefix: ""
+loftitle: "# Lijst van figuren"
+lotTitle: "# Lijst van tabellen"
+
