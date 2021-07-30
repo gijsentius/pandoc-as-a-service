@@ -10,7 +10,7 @@
         novalidate
         v-if="isInitial || isSaving"
       >
-        <h1>Upload images</h1>
+        <h1>Convert with pandoc</h1>
         <div class="dropbox">
           <input
             type="file"
@@ -21,7 +21,6 @@
               filesChange($event.target.name, $event.target.files);
               fileCount = $event.target.files.length;
             "
-            accept="image/*"
             class="input-file"
           />
           <p v-if="isInitial">
@@ -39,7 +38,7 @@
           <a href="javascript:void(0)" @click="reset()">Upload again</a>
         </p>
         <ul class="list-unstyled">
-          <li v-for="item in uploadedFiles">
+          <li v-for="(item, index) in uploadedFiles" :key="index">
             <img
               :src="item.url"
               class="img-responsive img-thumbnail"
@@ -56,6 +55,7 @@
         </p>
         <pre>{{ uploadError }}</pre>
       </div>
+    </div>
   </div>
 </template>
 
