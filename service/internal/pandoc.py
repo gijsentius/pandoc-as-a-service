@@ -31,5 +31,3 @@ def run_pandoc(input_file: str, output_file: str, flags: Optional[Dict[str, List
     for flag in flags.values():
         base_command.extend(flag)
     process = subprocess.run(base_command)
-    print(process)
-    print(os.getcwd())

@@ -12,7 +12,8 @@ export const api = {
       headers: {
         'Content-Type': 'multipart/form-data',
         'Access-Control-Allow-Origin': '*'
-      }
+      },
+      responseType: 'blob'
     }).then((resp) => {
       const filename = document.name.split('.').slice(0, -1).join('.')
       downloadFile(resp.data, filename, 'application/pdf')

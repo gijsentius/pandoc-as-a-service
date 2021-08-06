@@ -55,6 +55,7 @@ async def convert_file(document: UploadFile = File(...),
 
     # return FileResponse(pdf_filepath)
     if os.path.exists(path_output):
-        return FileResponse(path_output, filename=filename_output)
+        print(path_output)
+        return FileResponse(path_output, filename=filename_output, media_type="application/pdf")
     else:
         return Response(status_code=500)
