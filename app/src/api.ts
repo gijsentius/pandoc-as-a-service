@@ -21,6 +21,7 @@ export const api = {
   }
 }
 
+// Used from https://gist.github.com/davalapar/d0a5ba7cce4bc599f54800da22926da2
 function downloadFile(data: any, filename: string, mime: string) {
   // It is necessary to create a new blob object with mime-type explicitly set
   // otherwise only Chrome works like it should
