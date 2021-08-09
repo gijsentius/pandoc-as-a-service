@@ -42,5 +42,6 @@ mkdir -p $HOME/.local/share/plantuml
 
 cp resources/crossref-config.yaml $HOME/.pandoc-crossref/config.yaml
 cp resources/templates/* $HOME/.pandoc/templates
-cp resources/plantuml/plantuml $HOME/.local/bin/plantuml
+# cp resources/plantuml/plantuml $HOME/.local/bin/plantuml
+cp resources/plantuml/plantuml /usr/bin/plantuml
 cp resources/plantuml/plantuml.jar $HOME/.local/share/plantuml/plantuml.jar 
