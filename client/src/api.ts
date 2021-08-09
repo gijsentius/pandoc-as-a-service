@@ -8,7 +8,7 @@ export const api = {
     other.forEach(file => {
       formData.append('other', file)
     })
-    axios.post('http://localhost:8000/convert', formData, {
+    axios.post(apiUrl + '/convert', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
         'Access-Control-Allow-Origin': '*'
