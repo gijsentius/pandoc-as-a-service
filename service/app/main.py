@@ -9,7 +9,7 @@ from fastapi.responses import FileResponse
 from .internal import pandoc
 
 
-app = FastAPI()
+app = FastAPI(root_path="/api/v1")
 
 origins = [
     "http://localhost",
