@@ -9,11 +9,12 @@ from fastapi.responses import FileResponse
 from .internal import pandoc
 
 
-app = FastAPI(root_path="/api/v1")
+app = FastAPI()
 
 origins = [
     "http://localhost",
     "http://localhost:8080",
+    "http://pandoc-service:8080"
 ]
 
 # origins = ['*']
@@ -27,7 +28,7 @@ app.add_middleware(
 )
 
 
-@app.post("/convert")
+@app.post("/api/v1/convert")
 async def convert_file(document: UploadFile = File(...),
                        other: Optional[List[UploadFile]] = []):
     filename = filename_without_extension(document.filename)

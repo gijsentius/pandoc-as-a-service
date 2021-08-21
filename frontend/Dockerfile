@@ -4,8 +4,8 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-ARG FRONTEND_ENV=production
-ENV VUE_APP_ENV=${FRONTEND_ENV}
+# ARG FRONTEND_ENV=production
+# ENV VUE_APP_ENV=${FRONTEND_ENV}
 RUN npm run build
 
 # production stage

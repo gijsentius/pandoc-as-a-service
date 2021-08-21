@@ -44,8 +44,10 @@ COPY resources/crossref-config.yaml /home/.pandoc-crossref/config.yaml
 COPY resources/templates/* /home/.pandoc/templates/
 COPY resources/plantuml/plantuml /usr/bin/plantuml
 
-COPY app app
+COPY service service
+
+ENV PANDOC_DATA_DIR=/home/.pandoc
 
 EXPOSE 8080
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "service.main:app", "--host", "0.0.0.0", "--port", "8080"]

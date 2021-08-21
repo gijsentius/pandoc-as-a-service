@@ -6,9 +6,9 @@ from typing import Dict, List, Final, Optional
 
 def get_pandoc_workdir() -> List[str]:
     try:
-        return ["--data-dir=" + os.environ['PANDOC_DATA_DIR'], ""]
+        return ["--data-dir=" + os.environ['PANDOC_DATA_DIR']]
     except:
-        return ["--data-dir=/home/.pandoc", ""]
+        return []
 
 
 PANDOC_CROSSREF_FLAG: Final[str] = ["-F", "pandoc-crossref"]
